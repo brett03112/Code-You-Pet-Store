@@ -6,7 +6,16 @@ public class CatFood : Product
     public double WeightPounds { get; set; } = 25.0;
     public bool KittenFood { get; set; } = false;
 
-
+    /// <summary>
+    /// Constructor for CatFood that inherits from Product
+    /// </summary>
+    /// <param name="weightPounds"></param>
+    /// <param name="kittenFood"></param>
+    /// <param name="name"></param>
+    /// <param name="price"></param>
+    /// <param name="quantity"></param>
+    /// <param name="description"></param>
+    /// <returns></returns>
     public CatFood(double weightPounds, bool kittenFood,
         string name, decimal price, int quantity, string description) : 
         base(name, price, quantity, description)
@@ -14,8 +23,18 @@ public class CatFood : Product
         WeightPounds = weightPounds;
         KittenFood = kittenFood;
     }
+
+    /// <summary>
+    /// Override ToString to print CatFood properties
+    /// </summary>
+    /// <returns>A string of properties of the CatFood object</returns>
     public override string ToString()
     {
-        return $"{base.ToString()}, WeightPounds: {this.WeightPounds}, KittenFood: {this.KittenFood}";
+        return $"Name: {this.Name}, Price: {this.Price}, Quantity: {this.Quantity}, Description: {this.Description}, WeightPounds: {this.WeightPounds}, KittenFood: {this.KittenFood}";
+    }
+
+    public new string ConvertToJson()
+    {
+        return JsonSerializer.Serialize(base.ConvertToJson() + this.ToString());
     }
 }

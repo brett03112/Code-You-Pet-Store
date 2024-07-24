@@ -10,7 +10,7 @@ public class Product
     public string? Description { get; set; } 
 
     /// <summary>
-    /// constructor for product
+    /// constructor for product (base class)
     /// </summary>
     /// <param name="name"></param>
     /// <param name="price"></param>
@@ -24,10 +24,17 @@ public class Product
         Description = description;
     }
 
+    /// <summary>
+    /// Override ToString to print Product properties (base class)
+    /// </summary>
+    /// <returns>A string of properties of the Product object</returns>
     public override string ToString()
     {
         return $"Name: {this.Name}, Price: {this.Price}, Quantity: {this.Quantity}, Description: {this.Description}";
     }
 
-
+    public string ConvertToJson()
+    {
+        return JsonSerializer.Serialize(this.ToString());
+    }
 }

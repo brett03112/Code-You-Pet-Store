@@ -1,5 +1,6 @@
 ﻿// Software-1-Class-Exercise-1\PetStore\Program.cs
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Store.App;
 
 string userInput = "";
@@ -55,6 +56,7 @@ while (userInput.ToLower() != "exit")
                 string description = "Adult food";
                 CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
                 Console.WriteLine(JsonSerializer.Serialize(catFood));
+                Console.WriteLine("");
                 Console.WriteLine(catFood.ToString());
             }
         }
@@ -63,7 +65,7 @@ while (userInput.ToLower() != "exit")
             Console.WriteLine("Enter the length of the product in inches");
             userInput = Console.ReadLine()!;
             int length ;
-            if (int.TryParse(userInput, out length))
+            if (int.TryParse(userInput, out length)) // attempt to parse userInput => length : int
             {
                 Console.WriteLine("Enter the material of the product");
                 string material = Console.ReadLine()!;
@@ -73,7 +75,8 @@ while (userInput.ToLower() != "exit")
                 int quantity = 1;
                 string description = "Dog Leash";
                 DogLeash dogLeash = new DogLeash(length, material, name, price, quantity, description);
-                Console.WriteLine(JsonSerializer.Serialize(dogLeash));
+                string jsonOutput = JsonSerializer.Serialize(dogLeash);
+                Console.WriteLine(jsonOutput);
                 Console.WriteLine("");
                 Console.WriteLine(dogLeash.ToString());
             }
