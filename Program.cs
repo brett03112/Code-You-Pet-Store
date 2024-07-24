@@ -52,7 +52,7 @@ while (userInput.ToLower() != "exit")
                 CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
                 Console.WriteLine(JsonSerializer.Serialize( value: catFood, options));
                 Console.WriteLine("");
-                Console.WriteLine(catFood.ToString());
+                //Console.WriteLine(catFood.ToString());
             }
             
             else // adult food
@@ -64,7 +64,7 @@ while (userInput.ToLower() != "exit")
                 CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
                 Console.WriteLine(JsonSerializer.Serialize(value: catFood, options));
                 Console.WriteLine("");
-                Console.WriteLine(catFood.ToString());
+               // Console.WriteLine(catFood.ToString());
             }
         }
         else if (userInput.ToLower() == "dogleash")
@@ -85,7 +85,7 @@ while (userInput.ToLower() != "exit")
                 string jsonOutput = JsonSerializer.Serialize(value: dogLeash, options);
                 Console.WriteLine(jsonOutput);
                 Console.WriteLine("");
-                Console.WriteLine(dogLeash.ToString());
+                //Console.WriteLine(dogLeash.ToString());
             }
             else
             {
