@@ -1,5 +1,6 @@
 using System.Text.Json;
 
+
 namespace Store.App;
 
 public class Product
@@ -16,6 +17,7 @@ public class Product
     /// <param name="price"></param>
     /// <param name="quantity"></param>
     /// <param name="description"></param> <summary>
+     
     public Product(string name, decimal price, int quantity, string description)
     {
         Name = name ;
@@ -33,8 +35,19 @@ public class Product
         return $"Name: {this.Name}, Price: {this.Price}, Quantity: {this.Quantity}, Description: {this.Description}";
     }
 
+    /// <summary>
+    /// A method to convert Product to Json
+    /// </summary>
+    /// <returns>JSON representation of Product</returns>
     public string ConvertToJson()
     {
+        JsonSerializerOptions options = new()
+        {
+            WriteIndented = true,
+            IncludeFields = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true
+        };
         return JsonSerializer.Serialize(this.ToString());
     }
 }

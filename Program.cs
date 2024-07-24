@@ -4,6 +4,13 @@ using System.Text.Json.Serialization;
 using Store.App;
 
 string userInput = "";
+JsonSerializerOptions options = new()
+{
+    IncludeFields = true, // Includes all fields.
+    PropertyNameCaseInsensitive = true,
+    WriteIndented = true,
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+};
 
 while (userInput.ToLower() != "exit")
 {
@@ -43,7 +50,7 @@ while (userInput.ToLower() != "exit")
                 int quantity = 1;
                 string description = "Kitten food";
                 CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
-                Console.WriteLine(JsonSerializer.Serialize(catFood));
+                Console.WriteLine(JsonSerializer.Serialize( value: catFood, options));
                 Console.WriteLine("");
                 Console.WriteLine(catFood.ToString());
             }
@@ -55,7 +62,7 @@ while (userInput.ToLower() != "exit")
                 int quantity = 1;
                 string description = "Adult food";
                 CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
-                Console.WriteLine(JsonSerializer.Serialize(catFood));
+                Console.WriteLine(JsonSerializer.Serialize(value: catFood, options));
                 Console.WriteLine("");
                 Console.WriteLine(catFood.ToString());
             }
@@ -75,7 +82,7 @@ while (userInput.ToLower() != "exit")
                 int quantity = 1;
                 string description = "Dog Leash";
                 DogLeash dogLeash = new DogLeash(length, material, name, price, quantity, description);
-                string jsonOutput = JsonSerializer.Serialize(dogLeash);
+                string jsonOutput = JsonSerializer.Serialize(value: dogLeash, options);
                 Console.WriteLine(jsonOutput);
                 Console.WriteLine("");
                 Console.WriteLine(dogLeash.ToString());

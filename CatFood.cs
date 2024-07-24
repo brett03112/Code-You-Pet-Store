@@ -33,8 +33,19 @@ public class CatFood : Product
         return $"Name: {this.Name}, Price: {this.Price}, Quantity: {this.Quantity}, Description: {this.Description}, WeightPounds: {this.WeightPounds}, KittenFood: {this.KittenFood}";
     }
 
+    /// <summary>
+    /// A method to convert CatFood to a JSON string
+    /// </summary>
+    /// <returns>JSON representation of CatFood</returns>
     public new string ConvertToJson()
     {
+        JsonSerializerOptions options = new()
+        {
+            WriteIndented = true,
+            IncludeFields = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true
+        };
         return JsonSerializer.Serialize(base.ConvertToJson() + this.ToString());
     }
 }

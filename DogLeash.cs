@@ -32,9 +32,19 @@ public class DogLeash : Product
     {
         return $"Name: {this.Name}, Price: {this.Price}, Quantity: {this.Quantity}, Description: {this.Description}, LengthInches: {this.LengthInches}, Material: {this.Material}";
     }
-
+    /// <summary>
+    /// A method to convert DogLeash to Json
+    /// </summary>
+    /// <returns>JSON representation of DogLeash</returns>
     public new string ConvertToJson()
     {
+        JsonSerializerOptions options = new()
+        {
+            WriteIndented = true,
+            IncludeFields = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = true
+        };
         return JsonSerializer.Serialize(base.ConvertToJson() + this.ToString());
     }
 }
