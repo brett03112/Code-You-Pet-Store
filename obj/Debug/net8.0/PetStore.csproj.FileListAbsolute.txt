@@ -1,0 +1,15 @@
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\bin\Debug\net8.0\PetStore.exe
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\bin\Debug\net8.0\PetStore.deps.json
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\bin\Debug\net8.0\PetStore.runtimeconfig.json
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\bin\Debug\net8.0\PetStore.dll
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\bin\Debug\net8.0\PetStore.pdb
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\PetStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\PetStore.AssemblyInfoInputs.cache
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\PetStore.AssemblyInfo.cs
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\PetStore.csproj.CoreCompileInputs.cache
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\PetStore.sourcelink.json
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\PetStore.dll
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\refint\PetStore.dll
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\PetStore.pdb
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\PetStore.genruntimeconfig.cache
+C:\Users\brett\Documents\code-you\Software-1-Class-Exercise-1\PetStore\obj\Debug\net8.0\ref\PetStore.dll
