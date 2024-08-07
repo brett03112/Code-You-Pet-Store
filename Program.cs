@@ -1,4 +1,4 @@
-﻿// Software-1-Class-Exercise-1\PetStore\Program.cs
+﻿// Software-1-Class-Exercise\PetStore\Program.cs
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Store.App;
@@ -46,13 +46,14 @@ while (userInput.ToLower() != "exit")
             if (kittenFood == true)
             {
                 double weight = 25.0;
-                decimal price = 10.99m;
+                decimal price = 10.99M;
                 int quantity = 1;
                 string description = "Kitten food";
                 CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
                 Console.WriteLine(JsonSerializer.Serialize( value: catFood, options));
                 Console.WriteLine("");
-                //Console.WriteLine(catFood.ToString());
+                Console.WriteLine(catFood.ToString()!);
+                
             }
             
             else // adult food
@@ -64,7 +65,8 @@ while (userInput.ToLower() != "exit")
                 CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
                 Console.WriteLine(JsonSerializer.Serialize(value: catFood, options));
                 Console.WriteLine("");
-               // Console.WriteLine(catFood.ToString());
+                Console.WriteLine(catFood.ToString()!);
+               
             }
         }
         else if (userInput.ToLower() == "dogleash")
@@ -85,7 +87,8 @@ while (userInput.ToLower() != "exit")
                 string jsonOutput = JsonSerializer.Serialize(value: dogLeash, options);
                 Console.WriteLine(jsonOutput);
                 Console.WriteLine("");
-                //Console.WriteLine(dogLeash.ToString());
+                Console.WriteLine(dogLeash.ToString()!);
+                
             }
             else
             {

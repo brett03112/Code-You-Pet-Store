@@ -3,7 +3,7 @@ namespace Store.App;
 
 public class DogLeash : Product
 {
-    public int LengthInches { get; set; } = 6;
+    public int LengthInches { get; set; } = 12;
     public string? Material { get; set; } = "Leather";
 
     /// <summary>
@@ -30,7 +30,7 @@ public class DogLeash : Product
     /// <returns>A string representation of the DogLeash object</returns>
     public override string ToString()
     {
-        return $"Name: {this.Name}, Price: {this.Price}, Quantity: {this.Quantity}, Description: {this.Description}, LengthInches: {this.LengthInches}, Material: {this.Material}";
+        return $"Name: {this.Name}, Price: ${this.Price}, Quantity: {this.Quantity}, Description: {this.Description}, LengthInches: {this.LengthInches}, Material: {this.Material}";
     }
     /// <summary>
     /// A method to convert DogLeash to Json

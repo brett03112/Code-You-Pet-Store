@@ -30,7 +30,7 @@ public class CatFood : Product
     /// <returns>A string of properties of the CatFood object</returns>
     public override string ToString()
     {
-        return $"Name: {this.Name}, Price: {this.Price}, Quantity: {this.Quantity}, Description: {this.Description}, WeightPounds: {this.WeightPounds}, KittenFood: {this.KittenFood}";
+        return $"Name: {this.Name}, Price: ${this.Price}, Quantity: {this.Quantity}, Description: {this.Description}, WeightPounds: {this.WeightPounds}, KittenFood: {this.KittenFood}";
     }
 
     /// <summary>

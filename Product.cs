@@ -5,10 +5,10 @@ namespace Store.App;
 
 public class Product
 {
-    public string? Name { get; set; }
-    public decimal Price { get; set; }
-    public int Quantity { get; set; }
-    public string? Description { get; set; } 
+    public string? Name { get; }
+    public decimal Price { get; }
+    public int Quantity { get; }
+    public string? Description { get; } 
 
     /// <summary>
     /// constructor for product (base class)
@@ -16,8 +16,7 @@ public class Product
     /// <param name="name"></param>
     /// <param name="price"></param>
     /// <param name="quantity"></param>
-    /// <param name="description"></param> <summary>
-     
+    /// <param name="description"></param> <summary> 
     public Product(string name, decimal price, int quantity, string description)
     {
         Name = name ;
@@ -32,7 +31,7 @@ public class Product
     /// <returns>A string of properties of the Product object</returns>
     public override string ToString()
     {
-        return $"Name: {this.Name}, Price: {this.Price}, Quantity: {this.Quantity}, Description: {this.Description}";
+        return $"Name: {this.Name}, Price: ${this.Price}, Quantity: {this.Quantity}, Description: {this.Description}";
     }
 
     /// <summary>
