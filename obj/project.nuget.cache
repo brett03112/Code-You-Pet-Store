@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "SwogbQEirJM=",
+  "dgSpecHash": "Q009MAunHf8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\brett\\Documents\\code-you\\software-1-class-exercise-1\\PetStore\\PetStore.csproj",
+  "projectFilePath": "C:\\Users\\brett\\Documents\\code-you\\Software-1-Class-Exercise-1\\PetStore\\PetStore.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\brett\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.5\\microsoft.netcore.app.ref.8.0.5.nupkg.sha512",
-    "C:\\Users\\brett\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.5\\microsoft.windowsdesktop.app.ref.8.0.5.nupkg.sha512",
-    "C:\\Users\\brett\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.5\\microsoft.aspnetcore.app.ref.8.0.5.nupkg.sha512",
-    "C:\\Users\\brett\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.5\\microsoft.netcore.app.host.win-x64.8.0.5.nupkg.sha512"
+    "C:\\Users\\brett\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.7\\microsoft.netcore.app.ref.8.0.7.nupkg.sha512",
+    "C:\\Users\\brett\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.7\\microsoft.windowsdesktop.app.ref.8.0.7.nupkg.sha512",
+    "C:\\Users\\brett\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.7\\microsoft.aspnetcore.app.ref.8.0.7.nupkg.sha512",
+    "C:\\Users\\brett\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.7\\microsoft.netcore.app.host.win-x64.8.0.7.nupkg.sha512"
   ],
   "logs": []
 }

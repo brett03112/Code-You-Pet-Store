@@ -1,5 +1,5 @@
 # Code-You-Pet-Store
 
-# Software-1 class exercise-1
+# Software-1 class exercise-Pet-Store
 
-# 7/24/2024
+

@@ -1,9 +1,7 @@
 ﻿// Software-1-Class-Exercise\PetStore\Program.cs
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Store.App;
 
-string userInput = "";
 JsonSerializerOptions options = new()
 {
     IncludeFields = true, // Includes all fields.
@@ -11,95 +9,67 @@ JsonSerializerOptions options = new()
     WriteIndented = true,
     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
 };
+var productLogic = new ProductLogic();
+
+string userInput = "";
+Console.WriteLine("Press 1 to add a Dog Leash product");
+Console.WriteLine("Press 2 to view a Dog Leash product");
+Console.WriteLine("Type 'exit' to quit");
+
+userInput = Console.ReadLine()!.ToLower();
+    
 
 while (userInput.ToLower() != "exit")
 {
-    Console.WriteLine("Press 1 to add a product");
+    
+    int input = int.Parse(userInput);
 
-    Console.WriteLine("Type 'exit' to quit");
-
-    userInput = Console.ReadLine()!;
-    if (userInput.ToLower() != "exit" && userInput != "1")
+    switch (input)
     {
-        Console.WriteLine("Invalid input. Please try again.");
-        continue;
-    }
+        case 1:
+            var dogLeash = new DogLeash();
 
-    if (userInput == "1")
-    {
-        Console.WriteLine("Enter the type of product you want to add: 'CatFood' or 'DogLeash'");
-        userInput = Console.ReadLine()!;
+            Console.WriteLine("Creating a dog leash product");
 
-        if (userInput.ToLower() == "catfood")
-        {
-            Console.WriteLine("What is the name of the product?");
-            string name = Console.ReadLine()!;
-            Console.WriteLine("Is the product kitten food? (true or false)");
-            userInput = Console.ReadLine()!;
-            if (userInput.ToLower() != "true" && userInput.ToLower() != "false")
-            {
-                Console.WriteLine("Invalid input. Please try again.");
-                continue;
-            }
-            bool kittenFood = bool.Parse(userInput.ToLower());
+            Console.Write("Enter the material the leash is made out of: ");
+            dogLeash.Material = Console.ReadLine();
 
-            if (kittenFood == true)
-            {
-                double weight = 25.0;
-                decimal price = 10.99M;
-                int quantity = 1;
-                string description = "Kitten food";
-                CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
-                Console.WriteLine(JsonSerializer.Serialize( value: catFood, options));
-                Console.WriteLine("");
-                Console.WriteLine(catFood.ToString()!);
-                
-            }
-            
-            else // adult food
-            {
-                double weight = 25.0;
-                decimal price = 15.99m;
-                int quantity = 1;
-                string description = "Adult food";
-                CatFood catFood = new CatFood(weight, kittenFood, name, price, quantity, description);
-                Console.WriteLine(JsonSerializer.Serialize(value: catFood, options));
-                Console.WriteLine("");
-                Console.WriteLine(catFood.ToString()!);
-               
-            }
-        }
-        else if (userInput.ToLower() == "dogleash")
-        {
-            Console.WriteLine("Enter the length of the product in inches");
-            userInput = Console.ReadLine()!;
-            int length ;
-            if (int.TryParse(userInput, out length)) // attempt to parse userInput => length : int
-            {
-                Console.WriteLine("Enter the material of the product");
-                string material = Console.ReadLine()!;
-                Console.WriteLine("What is the name of the product?");
-                string name = Console.ReadLine()!;
-                decimal price = 19.99m;
-                int quantity = 1;
-                string description = "Dog Leash";
-                DogLeash dogLeash = new DogLeash(length, material, name, price, quantity, description);
-                string jsonOutput = JsonSerializer.Serialize(value: dogLeash, options);
-                Console.WriteLine(jsonOutput);
-                Console.WriteLine("");
-                Console.WriteLine(dogLeash.ToString()!);
-                
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please try again.");
-                continue;
-            }
-        }
-        else
-        {
-            Console.WriteLine("Invalid product type");
+            Console.Write("Enter the length in inches: ");
+            dogLeash.LengthInches = int.Parse(Console.ReadLine()!);
+
+            Console.Write("Enter the name of the leash: ");
+            dogLeash.Name = Console.ReadLine();
+
+            Console.Write("Give the product a short description: ");
+            dogLeash.Description = Console.ReadLine();
+
+            Console.Write("Give the product a price: ");
+            dogLeash.Price = decimal.Parse(Console.ReadLine()!);
+
+            Console.Write("How many products do you have on hand? ");
+            dogLeash.Quantity = int.Parse(Console.ReadLine()!);
+
+            productLogic.AddProduct(dogLeash);
+            Console.WriteLine("Added dog leash product");
+            break;
+        
+        case 2:
+            Console.WriteLine("Enter the name of the dog leash to view?");
+            var leashName = Console.ReadLine();
+            var leash = productLogic.GetDogLeashByName(leashName!);
+            string jsonOutput = JsonSerializer.Serialize(value: leash, options);
+            Console.WriteLine($"{jsonOutput}\n");
+            break;
+
+        default:
+            Console.WriteLine("Invalid input");
+             
             continue;
-        }
+               
     }
+
+    Console.WriteLine("Press 1 to add a Dog Leash product");
+    Console.WriteLine("Press 2 to view a Dog Leash product");
+    Console.WriteLine("Type 'exit' to quit");
+    userInput = Console.ReadLine()!;
 }
