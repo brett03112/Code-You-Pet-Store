@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brett\\Documents\\code-you\\Software-1-Class-Exercise-1\\PetStore\\PetStore.csproj",
+      "projectUniqueName": "c:\\Users\\brett\\Documents\\code-you\\PetStore\\PetStore.csproj",
       "projectName": "PetStore",
-      "projectPath": "C:\\Users\\brett\\Documents\\code-you\\Software-1-Class-Exercise-1\\PetStore\\PetStore.csproj",
+      "projectPath": "c:\\Users\\brett\\Documents\\code-you\\PetStore\\PetStore.csproj",
       "packagesPath": "C:\\Users\\brett\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brett\\Documents\\code-you\\Software-1-Class-Exercise-1\\PetStore\\obj\\",
+      "outputPath": "c:\\Users\\brett\\Documents\\code-you\\PetStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

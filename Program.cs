@@ -1,5 +1,6 @@
 ﻿// Software-1-Class-Exercise\PetStore\Program.cs
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Store.App;
 
 JsonSerializerOptions options = new()
@@ -14,6 +15,7 @@ var productLogic = new ProductLogic();
 string userInput = "";
 Console.WriteLine("Press 1 to add a Dog Leash product");
 Console.WriteLine("Press 2 to view a Dog Leash product");
+Console.WriteLine("Press 3 to view all products in stock");
 Console.WriteLine("Type 'exit' to quit");
 
 userInput = Console.ReadLine()!.ToLower();
@@ -61,15 +63,24 @@ while (userInput.ToLower() != "exit")
             Console.WriteLine($"{jsonOutput}\n");
             break;
 
+        case 3:
+            var products = productLogic.GetAllProducts();
+            foreach (var product in products)
+            {
+                string jsonOutput2 = JsonSerializer.Serialize(value: product, options);
+                Console.WriteLine($"{jsonOutput2}\n");
+            }
+            break;
+
         default:
             Console.WriteLine("Invalid input");
-             
-            continue;
+            break;
                
     }
 
     Console.WriteLine("Press 1 to add a Dog Leash product");
     Console.WriteLine("Press 2 to view a Dog Leash product");
+    Console.WriteLine("Press 3 to view all products in stock");
     Console.WriteLine("Type 'exit' to quit");
     userInput = Console.ReadLine()!;
 }
