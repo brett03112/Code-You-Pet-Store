@@ -3,6 +3,7 @@ using System.Text.Json;
 
 namespace Store.App;
 
+
 public class Product
 {
     protected static readonly List<Product> _products;

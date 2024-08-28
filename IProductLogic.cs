@@ -11,4 +11,6 @@ internal interface IProductLogic
     public DogLeash GetDogLeashByName(string name);
 
     public List<string> GetOnlyInStockProducts();
+
+    public decimal GetTotalPriceOfInventory();
 }
