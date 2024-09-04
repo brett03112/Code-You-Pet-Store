@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Store.App.Validators;
 
 namespace Store.App
 {
@@ -121,23 +122,47 @@ namespace Store.App
         }
 
         
+        
         /// <summary>
-        /// Returns the dog leash with the specified name.
-        /// Throws an exception if no dog leash with the specified name is found.
+        /// Returns a product with the given name from the pet store. The type of the product
+        /// must be a subclass of <see cref="Product"/>.
         /// </summary>
-        /// <param name="name">The name of the dog leash to return.</param>
-        /// <returns>The dog leash with the specified name.</returns>
-        /// <exception cref="KeyNotFoundException">The specified name does not match any dog leash in the pet store.</exception>
-        public DogLeash GetDogLeashByName(string name)
+        /// <typeparam name="T">The type of the product, which must be a subclass of <see cref="Product"/>.</typeparam>
+        /// <param name="name">The name of the product to be retrieved.</param>
+        /// <returns>The product with the given name, or null if the product does not exist.</returns>
+        public T GetProductByName<T>(string? name) where T : Product
         {
             try
             {
-                return _dogLeash[name];
+                // Check if the type of the product is DogLeash
+                if (typeof(T) == typeof(DogLeash))
+                {
+                    // Try to get the product from the dictionary of dog leashes
+                    return _dogLeash.TryGetValue(name!, out DogLeash? leash) ? leash as T : null;
+                }
+                // Check if the type of the product is CatFood
+                else if (typeof(T) == typeof(CatFood))
+                {
+                    // Try to get the product from the dictionary of cat foods
+                    return _catFood.TryGetValue(name!, out CatFood? food) ? food as T : null;
+                }
+                // Check if the type of the product is DryCatFood
+                else if (typeof(T) == typeof(DryCatFood))
+                {
+                    // Try to get the product from the dictionary of dry cat foods
+                    return _dryCatFood.TryGetValue(name, out DryCatFood? food) ? food as T : null;
+                }
+
+                // If the type of the product is not recognized, return null
+                return null;
             }
-            catch (KeyNotFoundException ex)
+            catch (Exception e)
             {
-                throw new Exception($"DogLeash with name {name} not found. {ex.Message}");
+                Console.WriteLine(e);
+                return null;
+                
             }
+            
         }
 
         

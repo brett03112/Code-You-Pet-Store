@@ -1,5 +1,5 @@
 using System.Text.Json;
-using System.Text.Json.Serialization;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Store.App;
 
@@ -18,36 +18,20 @@ public class UILogic
     /// </summary>
     public static void UISwitchLogic(int choice)
     {
+        // Create the service collection and add the product logic services to the service collection 
+        var services = UILogic.CreateServiceCollection();
+        
         switch (choice)
         {
-            case 1:
-                var options = NewOptions();
-                var productLogic = new ProductLogic();
-
-                var dogLeash = new DogLeash();
-
-                Console.WriteLine("Creating a dog leash product");
-
-                Console.Write("Enter the material the leash is made out of: ");
-                dogLeash.Material = Console.ReadLine();
-
-                Console.Write("Enter the length in inches: ");
-                dogLeash.LengthInches = int.Parse(Console.ReadLine()!);
-
-                Console.Write("Enter the name of the leash: ");
-                dogLeash.Name = Console.ReadLine();
-
-                Console.Write("Give the product a short description: ");
-                dogLeash.Description = Console.ReadLine();
-
-                Console.Write("Give the product a price: ");
-                dogLeash.Price = decimal.Parse(Console.ReadLine()!);
-
-                Console.Write("How many products do you have on hand? ");
-                dogLeash.Quantity = int.Parse(Console.ReadLine()!);
-
-                productLogic.AddProduct(dogLeash);
-                Console.WriteLine("Added dog leash product\n");
+            case 1:                
+                var productLogic = services.GetService<IProductLogic>();
+                Console.WriteLine("Please add a dog leash product in JSON format:");
+                Console.WriteLine("Here is an example:");
+                Console.WriteLine("{Price: 58.89, Name: Special dog leash, " +
+                    "Quantity: -10, Description: Magical leash that will help your dog not pull hard when going on walks, " +
+                    "Material: Classified, LengthInches: 12}\n");
+                var leash = JsonSerializer.Deserialize<DogLeash>(Console.ReadLine()!);
+                productLogic!.AddProduct(leash!);                
                 break;
             
             case 2:
@@ -55,8 +39,8 @@ public class UILogic
                 var productLogic2 = new ProductLogic();
                 Console.WriteLine("Enter the name of the dog leash to view?");
                 var leashName = Console.ReadLine();
-                var leash = productLogic2.GetDogLeashByName(leashName!);
-                string jsonOutput = JsonSerializer.Serialize(value: leash, options2);
+                var leash2 = productLogic2.GetProductByName<DogLeash>(leashName!);
+                string jsonOutput = JsonSerializer.Serialize(value: leash2, options2);
                 Console.WriteLine($"{jsonOutput}\n");
                 break;
 
@@ -101,5 +85,38 @@ public class UILogic
         };
 
         return options;
+    }
+
+    /// <summary>
+    /// Displays the main menu of the program, which allows the user to perform one of the following actions:
+    /// 1. Add a Dog Leash product
+    /// 2. View a Dog Leash product
+    /// 3. View all products in stock
+    /// 4. View the total price of the current inventory
+    /// 5. Quit the program by typing 'exit'
+    /// </summary>
+    public static void DisplayMenu()
+    {
+        Console.WriteLine("Press 1 to add a Dog Leash product");
+        Console.WriteLine("Press 2 to view a Dog Leash product");
+        Console.WriteLine("Press 3 to view all products in stock");
+        Console.WriteLine("Press 4 to view the total price of the current inventory");
+        Console.WriteLine("Type 'exit' to quit\n"); 
+    }
+
+    /// <summary>
+    /// Creates and returns a service provider with the product logic services configured.
+    /// </summary>
+    /// <returns>
+    /// An instance of IServiceProvider that provides access to the product logic services.
+    /// </returns>
+    public static IServiceProvider CreateServiceCollection()
+    {
+        // Creates a new service collection and adds the product logic services
+        return new ServiceCollection()
+            // Adds the IProductLogic interface with a transient lifetime, implemented by the ProductLogic class
+            .AddTransient<IProductLogic, ProductLogic>()
+            // Builds the service provider from the service collection
+            .BuildServiceProvider();
     }
 }
