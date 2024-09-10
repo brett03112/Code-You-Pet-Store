@@ -1,5 +1,7 @@
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
+using Store.App.Validators;
+using FluentValidation;
 
 namespace Store.App;
 
@@ -28,10 +30,27 @@ public class UILogic
                 Console.WriteLine("Please add a dog leash product in JSON format:");
                 Console.WriteLine("Here is an example:");
                 Console.WriteLine("{Price: 58.89, Name: Special dog leash, " +
-                    "Quantity: -10, Description: Magical leash that will help your dog not pull hard when going on walks, " +
+                    "Quantity: 10, Description: Magical leash that will help your dog not pull hard when going on walks, " +
                     "Material: Classified, LengthInches: 12}\n");
-                var leash = JsonSerializer.Deserialize<DogLeash>(Console.ReadLine()!);
-                productLogic!.AddProduct(leash!);                
+                var leashJson = Console.ReadLine()!;
+                var leash = JsonSerializer.Deserialize<DogLeash>(leashJson);
+                
+                var validator = new DogLeashValidator();
+                var validationResult = validator.Validate(leash!);
+                
+                if (validationResult.IsValid)
+                {
+                    productLogic!.AddProduct(leash!);
+                    Console.WriteLine("Dog leash added successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Validation failed. Please check the following errors:");
+                    foreach (var error in validationResult.Errors)
+                    {
+                        Console.WriteLine($"- {error.ErrorMessage}");
+                    }
+                }
                 break;
             
             case 2:
