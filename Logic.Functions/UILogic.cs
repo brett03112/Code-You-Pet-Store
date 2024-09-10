@@ -27,13 +27,30 @@ public class UILogic
         {
             case 1:                
                 var productLogic = services.GetService<IProductLogic>();
-                Console.WriteLine("Please add a dog leash product in JSON format:");
+                Console.WriteLine("Please add a dog leash product: ");
                 Console.WriteLine("Here is an example:");
                 Console.WriteLine("{Price: 58.89, Name: Special dog leash, " +
                     "Quantity: 10, Description: Magical leash that will help your dog not pull hard when going on walks, " +
                     "Material: Classified, LengthInches: 12}\n");
-                var leashJson = Console.ReadLine()!;
-                var leash = JsonSerializer.Deserialize<DogLeash>(leashJson);
+                var leash = new DogLeash();
+                var options = NewOptions();
+                Console.WriteLine("Enter the price of the dog leash?");
+                leash.Price = decimal.Parse(Console.ReadLine()!);
+                Console.WriteLine("Enter the name of the dog leash?");
+                leash.Name = Console.ReadLine();
+                Console.WriteLine("Enter the quantity of the dog leash?");
+                leash.Quantity = int.Parse(Console.ReadLine()!);
+                Console.WriteLine("Enter the description of the dog leash?");
+                leash.Description = Console.ReadLine();
+                Console.WriteLine("Enter the material of the dog leash?");
+                leash.Material = Console.ReadLine();
+                Console.WriteLine("Enter the length of the dog leash in inches?");
+                leash.LengthInches = int.Parse(Console.ReadLine()!);
+                
+                JsonSerializer.Serialize(value: leash, options);
+                
+
+                // Validate the leash
                 
                 var validator = new DogLeashValidator();
                 var validationResult = validator.Validate(leash!);
