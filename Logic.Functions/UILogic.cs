@@ -47,7 +47,7 @@ public class UILogic
                 Console.WriteLine("Enter the length of the dog leash in inches?");
                 leash.LengthInches = int.Parse(Console.ReadLine()!);
                 
-                JsonSerializer.Serialize(value: leash, options);
+                JsonSerializer.Serialize(value: leash, options: options);
                 
 
                 // Validate the leash

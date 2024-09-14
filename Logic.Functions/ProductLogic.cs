@@ -53,7 +53,7 @@ namespace Store.App
 
                 new DryCatFood
                 {
-                    Description = "A bag of healthy dry cat food.",
+                    Description = "A bag of healthy dry cat (kitten) food.",
                     Name = "CrunchBunch",
                     Price = 12.99m,
                     Quantity = 12,
@@ -93,19 +93,19 @@ namespace Store.App
         /// dictionary of dog leashes. If it is cat food, it adds it to the dictionary of 
         /// cat foods. Otherwise, it adds it to the list of products.
         /// </remarks>
-        public void AddProduct(Product product)
+        public void AddProduct(Product _product)
         {
-            if (product is DogLeash)
+            if (_product is DogLeash)
             {
-                _dogLeash.Add(product.Name!, product as DogLeash);
+                _dogLeash.Add(_product.Name!, _product as DogLeash);
             }
-            else if (product is CatFood)
+            else if (_product is CatFood)
             {
-                _catFood.Add(product.Name!, product as CatFood);
+                _catFood.Add(_product.Name!, _product as CatFood);
             }
             else
             {
-                _products.Add(product);
+                _products.Add(_product);
             }
         }
 

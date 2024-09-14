@@ -8,6 +8,9 @@ namespace Store.App.Validators
 {
     internal class DogLeashValidator: AbstractValidator<DogLeash>
     {
+        /// <summary>
+        /// Validates a DogLeash object. The object must have a non-empty name and description, and a price and quantity that are greater than zero.
+        /// </summary>
         public DogLeashValidator()
         {
             RuleFor(x => x.Name).NotEmpty();

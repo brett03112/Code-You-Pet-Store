@@ -1786,11 +1786,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\brett\\Documents\\code-you\\PetStore\\PetStore.csproj",
+      "projectUniqueName": "C:\\Users\\brett\\Documents\\code-you\\PetStore\\PetStore.csproj",
       "projectName": "PetStore",
-      "projectPath": "c:\\Users\\brett\\Documents\\code-you\\PetStore\\PetStore.csproj",
+      "projectPath": "C:\\Users\\brett\\Documents\\code-you\\PetStore\\PetStore.csproj",
       "packagesPath": "C:\\Users\\brett\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\brett\\Documents\\code-you\\PetStore\\obj\\",
+      "outputPath": "C:\\Users\\brett\\Documents\\code-you\\PetStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1850,30 +1850,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.7, 8.0.7]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.7, 8.0.7]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.7, 8.0.7]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.7, 8.0.7]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.7.24407.12/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
